@@ -381,7 +381,6 @@ li > a:only-child:after {
 /* header */
 
 /*--/banner --*/
-
 .main-banner {
     background: url(../images/banner.jpg)no-repeat center;
     -webkit-background-size: cover;
@@ -403,7 +402,11 @@ li > a:only-child:after {
     position: relative;
     min-height: 20em;
 }
-
+.bg1 {
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 0;
+    background-image: url('../single-post-pic.jpg');
+}
 /*-- place holder --*/
 
 .banner-form ::-webkit-input-placeholder {
@@ -1016,7 +1019,7 @@ form.w3layouts-newsletter {
     font-weight: 600;
     cursor: pointer;
     border-radius: 0;
-    padding: 0.7em 2em;
+    padding: 0.7em 1.5em;
 }
 
 h2.logo-2 a {
