@@ -30,12 +30,14 @@ class MoviesView(GenreYear, ListView):
 class MovieDetailView(GenreYear, DetailView):
     """Полное описание фильма"""
     model = Movie
+    queryset = Movie.objects.filter(draft=False)
     slug_field = 'url'
     template_name = 'movies/movie_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['star_form'] = RatingForm()
+        context['form'] = ReviewForm()
         return context
 
 
