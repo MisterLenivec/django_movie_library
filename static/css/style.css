@@ -884,7 +884,8 @@ ul.w3layouts-box-list li {
 }
 
 .grid-img-right {
-    background: url(../images/single.jpg)no-repeat center;
+    /*background: url(../images/single.jpg)no-repeat center;*/
+    background: none;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

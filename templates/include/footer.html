@@ -1,4 +1,4 @@
-{% load contact_tags %}
+{% load i18n contact_tags %}
 <footer class="editContent">
     <div class="container">
         <div class="row footer-top">
@@ -43,16 +43,16 @@
                 </div>
                 <div class="row mt-lg-4 bottom-w3layouts-sec-nav mx-0">
                     <div class="col-md-4 footer-grid_section_w3layouts">
-                        <h3 class="footer-title text-uppercase editContent mb-lg-4 mb-3" >Разделы</h3>
+                        <h3 class="footer-title text-uppercase editContent mb-lg-4 mb-3" >{% trans 'Разделы' %}</h3>
                         <ul class="list-unstyled w3layouts-icons">
                             <li>
-                                <a href="index.html" class="editContent" >Главная</a>
+                                <a href="index.html" class="editContent" >{% trans 'Главная' %}</a>
                             </li>
                             <li>
-                                <a href="about.html" class="editContent" >Категории</a>
+                                <a href="about.html" class="editContent" >{% trans 'Категории' %}</a>
                             </li>
                             <li>
-                                <a href="contact.html" class="editContent" >Контакты</a>
+                                <a href="contact.html" class="editContent" >{% trans 'Контакты' %}</a>
                             </li>
                         </ul>
                     </div>

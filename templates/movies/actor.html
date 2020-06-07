@@ -1,5 +1,5 @@
 {% extends 'movies/base.html' %}
-{% load static %}
+{% load i18n static %}
 {% block title %} {{ actor.name }} {% endblock title %}
 {% block container %}
     <div class="container py-md-3">
@@ -23,11 +23,11 @@
                 <ul>
                     <li>
                         <span>
-                            <b>Возраст: </b>{{ actor.age }} лет
+                            <b>{% trans 'Возраст' %}: </b>{{ actor.age }} {% trans 'лет' %}
                         </span>
                     </li>
                     <li>
-                        <span><b>Режиссер: </b>
+                        <span><b>{% trans 'Режиссер' %}: </b>
                             {% for movie in actor.film_director.all %}
                                 <br>
                                 {{ movie.title }}
@@ -35,7 +35,7 @@
                         </span>
                     </li>
                     <li>
-                        <span><b>Актер: </b>
+                        <span><b>{% trans 'Актеры' %}: </b>
                             {% for movie in actor.film_actor.all %}
                                 <br>
                                 {{ movie.title }}
@@ -46,9 +46,9 @@
             </div>
         </div>
         <div class="row sub-para-w3layouts mt-5">
-
             <h3 class="shop-sing editContent" style="outline: none; cursor: inherit;">
-                О {{ actor.name }}</h3>
+                {% trans 'О' %} {{ actor.name }}
+            </h3>
             <p class="editContent" style="outline: none; cursor: inherit;">
                 {{ actor.description|safe }}
             </p>
