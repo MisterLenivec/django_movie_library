@@ -34,6 +34,13 @@
             </li>
             <li class="breadcrumb-item active editContent">Single Page</li>
         </ol>
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
         {% block content %}
 
         {% endblock content %}

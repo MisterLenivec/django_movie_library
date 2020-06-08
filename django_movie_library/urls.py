@@ -25,6 +25,7 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('silk/', include('silk.urls', namespace='silk')),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('accounts/', include('allauth.urls')),
     path('pages/', include('django.contrib.flatpages.urls')),
     path('contact/', include('contact.urls')),
     path('', include('movies.urls')),

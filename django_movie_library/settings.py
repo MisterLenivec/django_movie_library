@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'contact.apps.ContactConfig',
     'snowpenguin.django.recaptcha3',
     'silk',
+    'allauth',
+    'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -97,6 +99,11 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -130,6 +137,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_REDIRECT_URL = '/'
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+EMAIL_BACKEND = os.environ.get('my_email_backend')
+EMAIL_HOST = os.environ.get('my_email_host')
+EMAIL_PORT = int(os.environ.get('my_email_port'))
+EMAIL_HOST_USER = os.environ.get('my_email_host_user')
+EMAIL_HOST_PASSWORD = os.environ.get('my_email_host_password')
+EMAIL_USE_TLS = os.environ.get('my_email_use_tls') == 'True'
+EMAIL_USE_SSL = os.environ.get('my_email_use_ssl') == 'True'
+DEFAULT_FROM_EMAIL = os.environ.get('my_email_host_user')
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 gettext = lambda s: s
 LANGUAGES = (
