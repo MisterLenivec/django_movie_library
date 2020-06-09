@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-05 21:40+0300\n"
+"POT-Creation-Date: 2020-06-09 14:12+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/contact/tags/form.html:3
+msgid "Новостная рассылка"
+msgstr "Newsletter"
+
+#: templates/contact/tags/form.html:6
+msgid ""
+"Подписавшись на нашу рассылку, вы всегда будете получать последние новости и "
+"обновления от нас."
+msgstr ""
+"By subscribing to our mailing list you will always get latest news and "
+"updates from us. "
+
+#: templates/include/footer.html:16
+msgid "Мы в соц. сетях"
+msgstr "Catch on Social"
 
 #: templates/include/footer.html:46
 msgid "Разделы"
@@ -35,19 +51,31 @@ msgstr "Categories"
 msgid "Контакты"
 msgstr "Contacts"
 
-#: templates/include/header.html:30
+#: templates/include/footer.html:62
+msgid "Страницы"
+msgstr "Pages"
+
+#: templates/include/footer.html:86
+msgid "Контактная информация"
+msgstr "Contact Info"
+
+#: templates/include/header.html:34
+msgid "Выход"
+msgstr "Logout"
+
+#: templates/include/header.html:38
 msgid "Вход"
 msgstr "Login"
 
-#: templates/include/header.html:46
+#: templates/include/header.html:58
 msgid "Перевести"
 msgstr "Translate"
 
-#: templates/include/header.html:56
+#: templates/include/header.html:68
 msgid "лучший сайт на django 3"
 msgstr "best site on django 3"
 
-#: templates/include/header.html:57
+#: templates/include/header.html:69
 msgid "Все о кино"
 msgstr "All about the movies"
 

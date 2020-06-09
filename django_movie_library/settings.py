@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'silk',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.vk',
 ]
 
 MIDDLEWARE = [
