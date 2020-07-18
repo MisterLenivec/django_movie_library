@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('movie_lib_secret_key')
+# SECRET_KEY = os.environ.get('movie_lib_secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('movie_lib_debug') == 'True'
+# DEBUG = os.environ.get('movie_lib_debug') == 'True'
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -90,16 +90,16 @@ WSGI_APPLICATION = 'django_movie_library.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('movie_lib_db_name'),
-        'USER': os.environ.get('movie_lib_db_user'),
-        'PASSWORD': os.environ.get('movie_lib_db_password'),
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('movie_lib_db_name'),
+#         'USER': os.environ.get('movie_lib_db_user'),
+#         'PASSWORD': os.environ.get('movie_lib_db_password'),
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -145,14 +145,14 @@ LOGIN_REDIRECT_URL = '/'
 
 
 # EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-EMAIL_BACKEND = os.environ.get('my_email_backend')
-EMAIL_HOST = os.environ.get('my_email_host')
-EMAIL_PORT = int(os.environ.get('my_email_port'))
-EMAIL_HOST_USER = os.environ.get('my_email_host_user')
-EMAIL_HOST_PASSWORD = os.environ.get('my_email_host_password')
-EMAIL_USE_TLS = os.environ.get('my_email_use_tls') == 'True'
-EMAIL_USE_SSL = os.environ.get('my_email_use_ssl') == 'True'
-DEFAULT_FROM_EMAIL = os.environ.get('my_email_host_user')
+# EMAIL_BACKEND = os.environ.get('my_email_backend')
+# EMAIL_HOST = os.environ.get('my_email_host')
+# EMAIL_PORT = int(os.environ.get('my_email_port'))
+# EMAIL_HOST_USER = os.environ.get('my_email_host_user')
+# EMAIL_HOST_PASSWORD = os.environ.get('my_email_host_password')
+# EMAIL_USE_TLS = os.environ.get('my_email_use_tls') == 'True'
+# EMAIL_USE_SSL = os.environ.get('my_email_use_ssl') == 'True'
+# DEFAULT_FROM_EMAIL = os.environ.get('my_email_host_user')
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 REDIS_HOST = '0.0.0.0'
@@ -181,8 +181,8 @@ LOCALE_PATHS = (
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [STATIC_DIR]
+# STATIC_DIR = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [STATIC_DIR]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
@@ -257,9 +257,16 @@ CKEDITOR_CONFIGS = {
 }
 
 
-RECAPTCHA_PUBLIC_KEY = os.environ.get('movie_lib_recaptcha_public_key')
-RECAPTCHA_PRIVATE_KEY = os.environ.get('movie_lib_recaptcha_private_key')
+# RECAPTCHA_PUBLIC_KEY = os.environ.get('movie_lib_recaptcha_public_key')
+# RECAPTCHA_PRIVATE_KEY = os.environ.get('movie_lib_recaptcha_private_key')
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
 
 SITE_ID = 1
+
+try:
+    from .local_settings import *
+except ImportError:
+    from .prod_settings import *
+
+# commands for deploy django https://gist.github.com/DJWOMS/11f91f60def49d7bd1ca9c5dc4bbc3dc
