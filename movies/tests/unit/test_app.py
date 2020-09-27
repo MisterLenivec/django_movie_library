@@ -1,10 +1,9 @@
 from django.apps import apps
-from django.test import TestCase
 
 from movies.apps import MoviesConfig
 
 
-class MoviesConfigTests(TestCase):
+class TestMoviesConfig:
     """
     App config name test
     """
@@ -12,5 +11,6 @@ class MoviesConfigTests(TestCase):
         """
         App config name is movies
         """
-        self.assertEqual('movies', MoviesConfig.name)
-        self.assertEqual('movies', apps.get_app_config('movies').name)
+        assert 'movies' == MoviesConfig.name, "App config name should be movies"
+        assert 'movies' == apps.get_app_config('movies').name, \
+            "App config name should be movies"
