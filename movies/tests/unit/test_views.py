@@ -1,9 +1,20 @@
 import pytest
 
-from movies.models import Movie
+from movies.models import Movie, Actor
 
 
-@pytest.mark.parametrize('page_url', ["/", "/filter/", "/json-filter/"])
+# After /json-filter/ film slug urls
+@pytest.mark.parametrize('page_url', [
+    "/",
+    "/filter/",
+    "/json-filter/",
+    "/frozen-2/",
+    "/terminator/",
+    "/terminator-2/",
+    "/terminator-3/",
+    "/frozen/",
+    "/terminator-4/",
+])
 @pytest.mark.django_db
 class TestUrlStatusCode:
     """
@@ -13,6 +24,19 @@ class TestUrlStatusCode:
         page = client.get(page_url)
         assert page.status_code == 200, \
             f"'{page_url}' status code is not 200, but should be"
+
+
+# Dont do like that
+@pytest.mark.django_db
+class TestUrlStatusCodeForActors:
+    """
+    Tests for task actor urls status code
+    """
+    def test_get_base_page_status_code_for_actors(self, client):
+        for actor in Actor.objects.all():
+            page = client.get(f"/actor/{actor.name}/")
+            assert page.status_code == 200, \
+                f"'/actor/{actor.name}/' status code is not 200, but should be"
 
 
 @pytest.mark.parametrize('template_name', [
