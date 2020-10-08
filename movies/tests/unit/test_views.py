@@ -3,9 +3,33 @@ import pytest
 from movies.models import Movie, Actor
 
 
+@pytest.mark.parametrize('page_url', [
+    "/admin/",
+    "/admin/account/",
+    "/admin/auth/",
+    "/admin/flatpages/",
+    "/admin/sites/",
+    "/admin/socialaccount/",
+    "/admin/contact/",
+    "/admin/movies/",
+])
+@pytest.mark.django_db
+class TestUrlStatusCodeAdminPages:
+    """
+    Tests admin pages correct status code
+    """
+    def test_get_status_code_admin_pages(self, admin_login, page_url):
+        page = admin_login.get(page_url)
+        assert page.status_code == 200, \
+            f"'{page_url}' status code is not 200, but should be"
+
+
 # After /json-filter/ film slug urls
 @pytest.mark.parametrize('page_url', [
     "/",
+    "/about/",
+    "/admin/login/",
+    "/search/?q=frozen",
     "/filter/",
     "/json-filter/",
     "/frozen-2/",
@@ -24,6 +48,17 @@ class TestUrlStatusCode:
         page = client.get(page_url)
         assert page.status_code == 200, \
             f"'{page_url}' status code is not 200, but should be"
+
+
+@pytest.mark.django_db
+class TestUrlStatusCodeRedirectAdminLoginPage:
+    """
+    Tests for redirect admin to login page status code
+    """
+    def test_get_page_status_code_for_redirect_admin_login_page(self, client):
+        page = client.get("/admin/")
+        assert page.status_code == 302, \
+            "'/admin/' status code is not 302, but should be"
 
 
 # Dont do like that

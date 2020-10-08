@@ -36,3 +36,12 @@ def django_db_setup():
         connection.close()
 
     run_sql('DROP DATABASE the_copied_db')
+
+
+@pytest.fixture(scope="function")
+def admin_login(client):
+    client.get("/admin/login/")
+    client.login(username=os.environ.get("movie_lib_admin_login"),
+                 password=os.environ.get("movie_lib_admin_password"))
+    yield client
+    client.get("/admin/logout/")
