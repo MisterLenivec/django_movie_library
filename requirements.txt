@@ -18,7 +18,7 @@ future==0.18.2
 gprof2dot==2019.11.30
 humanize==0.5.1
 idna==2.9
-Jinja2==2.11.2
+Jinja2==2.11.3
 kombu==4.6.10
 MarkupSafe==1.1.1
 oauthlib==3.1.0
